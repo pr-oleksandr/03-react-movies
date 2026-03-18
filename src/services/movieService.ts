@@ -3,8 +3,12 @@ import type { Movie } from "../types/movie";
 
 const myKey = import.meta.env.VITE_TMDB_TOKEN;
 
-export async function fetchMovies(movieName: string) {
-    const { data } = await axios.get<{ results: Movie[] }>("https://api.themoviedb.org/3/search/movie", {
+interface FetchMoviesResponse {
+  results: Movie[];
+}
+
+export async function fetchMovies(movieName: string): Promise<Movie[]> {
+    const { data } = await axios.get<FetchMoviesResponse>("https://api.themoviedb.org/3/search/movie", {
         params: {
             query: movieName,
         },
