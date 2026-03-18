@@ -13,6 +13,6 @@ export async function fetchMovies(movieName: string) {
         }
     })
 
-    return data
+    return data.results
 
 }

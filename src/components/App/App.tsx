@@ -19,7 +19,7 @@ function App() {
     try {
       setError(false);
       setShowloader(true);
-      const response = (await fetchMovies(value)).results;
+      const response = await fetchMovies(value);
       if (!response.length) {
         setMovieList([]);
         toast.error("No movies found for your request");
